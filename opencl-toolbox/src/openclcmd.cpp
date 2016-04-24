@@ -424,7 +424,7 @@ void fetch_opencl_devices(int nlhs, mxArray *plhs[], int nrhs, const mxArray *pr
 
     try {	
 		std::vector<cl_platform_id> platforms = OCLPlatform::get_platform_ids();
-        mwSize dims[2] = {platforms.size(), 1};
+        mwSize dims[2] = { (int)platforms.size(), 1};
         
         plhs[0] = mxCreateStructArray(2, dims, PLAT_NUM_FIELDS, platform_field_names);        
         
@@ -890,8 +890,8 @@ void get_buffer(mxArray *plhs[], const mxArray *deviceNumber, const mxArray *buf
 
     mxArray *arr = 0;
 
-    size_t mrows = 1;
-    size_t nElems = sz;
+    int mrows = 1;
+    int nElems = sz;
 
     if (strcmp(&type_str[0], "int8") == 0) {                
          arr = mxCreateNumericMatrix(mrows,nElems, mxINT8_CLASS, mxREAL);

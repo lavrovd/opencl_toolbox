@@ -9,7 +9,7 @@
  */
 
 // Device information available:
-#include <CL/cl.h>
+#include <OpenCL/cl.h>
 #include <string>
 
 namespace ray { namespace opencl {
